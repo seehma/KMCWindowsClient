@@ -76,11 +76,27 @@ namespace ConnectorClient
             {
                 try
                 {
-                    localRobotIPAddress = System.Net.IPAddress.Parse(comboBoxRobotIPAddress.SelectedItem.ToString());
+                    if (String.Equals(cmbProtocol.SelectedItem.ToString(),"UDP") )
+                    {
+                        localRobotIPAddress = System.Net.IPAddress.Parse(comboBoxRobotIPAddress.SelectedItem.ToString());
 
-                    connector_ = new KukaMatlabConnector.ConnectorObject("commanddoc.xml", localRobotIPAddress.ToString(), 6008);
+                        connector_ = new KukaMatlabConnector.ConnectorObject("commanddoc.xml", localRobotIPAddress.ToString(), 6008);
 
-                    connector_.initializeRobotListenThread();
+                        connector_.initializeRobotListenThreadUDP();
+                    }
+                    else if (String.Equals(cmbProtocol.SelectedItem.ToString(), "TCP"))
+                    {
+                        localRobotIPAddress = System.Net.IPAddress.Parse(comboBoxRobotIPAddress.SelectedItem.ToString());
+
+                        connector_ = new KukaMatlabConnector.ConnectorObject("commanddoc.xml", localRobotIPAddress.ToString(), 6008);
+
+                        connector_.initializeRobotListenThreadTCP();
+                    }
+                    else
+                    {
+                        loggingEntrys.Items.Add("KukaConnectorClient: illegal protocol selected");
+                    }
+
                 }
                 catch
                 {
@@ -226,23 +242,34 @@ namespace ConnectorClient
             stopWatch.Reset();
             stopWatch.Start();
 
-            // stop connection
-            connector_.stopRobotConnChannel();
+            if (connector_ != null)
+            {
+                // stop connection
+                connector_.stopRobotConnChannel();
+            }
 
             // stop Display refreshing 
             stopDisplayRefreshing();
 
-            // wait till connection is closed!
-            while ((connector_.getRobotConnectionState() != KukaMatlabConnector.ConnectorObject.ConnectionState.init) &&
-                   (loggerListenThread_.ThreadState != System.Threading.ThreadState.Stopped))
+            if (connector_ != null)
             {
-
-                System.Threading.Thread.Sleep(50);
-
-                // if closing needs longer than half a second => break and force closing
-                if( stopWatch.ElapsedMilliseconds > 500 )
+                // wait till connection is closed!
+                while ((connector_.getRobotConnectionState() != KukaMatlabConnector.ConnectorObject.ConnectionState.init) &&
+                       (loggerListenThread_.ThreadState != System.Threading.ThreadState.Stopped))
                 {
-                    break;
+                    System.Threading.Thread.Sleep(50);
+                    // if closing needs longer than half a second => break and force closing
+                    if (stopWatch.ElapsedMilliseconds > 500) { break; }
+                }
+            }
+            else
+            {
+                // wait till connection is closed!
+                while (loggerListenThread_.ThreadState != System.Threading.ThreadState.Stopped)
+                {
+                    System.Threading.Thread.Sleep(50);
+                    // if closing needs longer than half a second => break and force closing
+                    if (stopWatch.ElapsedMilliseconds > 500) { break; }
                 }
             }
 
@@ -508,6 +535,11 @@ namespace ConnectorClient
             {
                 label_debugString.Text = Convert.ToString(debug);
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -66,6 +66,7 @@
             this.appButtonIncrementKorr1 = new System.Windows.Forms.Button();
             this.groupBoxModifyCommandString = new System.Windows.Forms.GroupBox();
             this.groupBoxOther = new System.Windows.Forms.GroupBox();
+            this.btnResetMovement = new System.Windows.Forms.Button();
             this.loggingEntrys = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label_debugString = new System.Windows.Forms.Label();
@@ -78,7 +79,7 @@
             this.label_packagesSentDescr = new System.Windows.Forms.Label();
             this.label_packagesReceived = new System.Windows.Forms.Label();
             this.label_packagesReceivedDescr = new System.Windows.Forms.Label();
-            this.btnResetMovement = new System.Windows.Forms.Button();
+            this.cmbProtocol = new System.Windows.Forms.ComboBox();
             this.groupBoxConnectionStatus.SuspendLayout();
             this.groupBoxModifyCommandString.SuspendLayout();
             this.groupBoxOther.SuspendLayout();
@@ -203,12 +204,13 @@
             // 
             // groupBoxConnectionStatus
             // 
+            this.groupBoxConnectionStatus.Controls.Add(this.cmbProtocol);
             this.groupBoxConnectionStatus.Controls.Add(this.comboBoxRobotIPAddress);
             this.groupBoxConnectionStatus.Controls.Add(this.appButtonStopRobotListening);
             this.groupBoxConnectionStatus.Controls.Add(this.appButtonStartRobotListening);
             this.groupBoxConnectionStatus.Location = new System.Drawing.Point(7, 5);
             this.groupBoxConnectionStatus.Name = "groupBoxConnectionStatus";
-            this.groupBoxConnectionStatus.Size = new System.Drawing.Size(387, 56);
+            this.groupBoxConnectionStatus.Size = new System.Drawing.Size(387, 95);
             this.groupBoxConnectionStatus.TabIndex = 35;
             this.groupBoxConnectionStatus.TabStop = false;
             this.groupBoxConnectionStatus.Text = "Connection Status";
@@ -223,7 +225,7 @@
             // 
             // appButtonStopRobotListening
             // 
-            this.appButtonStopRobotListening.Location = new System.Drawing.Point(247, 19);
+            this.appButtonStopRobotListening.Location = new System.Drawing.Point(247, 51);
             this.appButtonStopRobotListening.Name = "appButtonStopRobotListening";
             this.appButtonStopRobotListening.Size = new System.Drawing.Size(134, 27);
             this.appButtonStopRobotListening.TabIndex = 25;
@@ -233,7 +235,7 @@
             // 
             // appButtonStartRobotListening
             // 
-            this.appButtonStartRobotListening.Location = new System.Drawing.Point(110, 19);
+            this.appButtonStartRobotListening.Location = new System.Drawing.Point(110, 51);
             this.appButtonStartRobotListening.Name = "appButtonStartRobotListening";
             this.appButtonStartRobotListening.Size = new System.Drawing.Size(134, 27);
             this.appButtonStartRobotListening.TabIndex = 3;
@@ -476,6 +478,16 @@
             this.groupBoxOther.TabIndex = 36;
             this.groupBoxOther.TabStop = false;
             // 
+            // btnResetMovement
+            // 
+            this.btnResetMovement.Location = new System.Drawing.Point(8, 51);
+            this.btnResetMovement.Name = "btnResetMovement";
+            this.btnResetMovement.Size = new System.Drawing.Size(120, 26);
+            this.btnResetMovement.TabIndex = 18;
+            this.btnResetMovement.Text = "Reset Commands";
+            this.btnResetMovement.UseVisualStyleBackColor = true;
+            this.btnResetMovement.Click += new System.EventHandler(this.btnResetMovement_Click);
+            // 
             // loggingEntrys
             // 
             this.loggingEntrys.FormattingEnabled = true;
@@ -593,17 +605,19 @@
             this.label_packagesReceivedDescr.TabIndex = 38;
             this.label_packagesReceivedDescr.Text = "Packages Received";
             // 
-            // btnResetMovement
+            // cmbProtocol
             // 
-            this.btnResetMovement.Location = new System.Drawing.Point(8, 51);
-            this.btnResetMovement.Name = "btnResetMovement";
-            this.btnResetMovement.Size = new System.Drawing.Size(120, 26);
-            this.btnResetMovement.TabIndex = 18;
-            this.btnResetMovement.Text = "Reset Commands";
-            this.btnResetMovement.UseVisualStyleBackColor = true;
-            this.btnResetMovement.Click += new System.EventHandler(this.btnResetMovement_Click);
+            this.cmbProtocol.FormattingEnabled = true;
+            this.cmbProtocol.Items.AddRange(new object[] {
+            "UDP",
+            "TCP"});
+            this.cmbProtocol.Location = new System.Drawing.Point(10, 55);
+            this.cmbProtocol.Name = "cmbProtocol";
+            this.cmbProtocol.Size = new System.Drawing.Size(94, 21);
+            this.cmbProtocol.TabIndex = 29;
+            this.cmbProtocol.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // ConnectorClient
+            // KMCWindowsClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -616,7 +630,7 @@
             this.Controls.Add(this.groupBoxModifyCommandString);
             this.Controls.Add(this.groupBoxOther);
             this.Controls.Add(this.loggingEntrys);
-            this.Name = "ConnectorClient";
+            this.Name = "KMCWindowsClient";
             this.Text = "ConnectorClient";
             this.Load += new System.EventHandler(this.KukaConnectorClient_Load);
             this.groupBoxConnectionStatus.ResumeLayout(false);
@@ -683,6 +697,7 @@
         private System.Windows.Forms.Label label_debugString;
         private System.Windows.Forms.Label label_debugStringDescr;
         private System.Windows.Forms.Button btnResetMovement;
+        private System.Windows.Forms.ComboBox cmbProtocol;
     }
 }
 

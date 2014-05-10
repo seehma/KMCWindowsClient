@@ -1,7 +1,5 @@
 C:\Users\Matthias.SEESLENET\Documents\GitHub\KMCWindowsClient\bin\Debug\KMCWindowsClient.exe
 C:\Users\Matthias.SEESLENET\Documents\GitHub\KMCWindowsClient\bin\Debug\KMCWindowsClient.pdb
-C:\Users\Matthias.SEESLENET\Documents\GitHub\KMCWindowsClient\bin\Debug\KukaMatlabConnector.dll
-C:\Users\Matthias.SEESLENET\Documents\GitHub\KMCWindowsClient\bin\Debug\TextLogger.dll
 C:\Users\Matthias.SEESLENET\Documents\GitHub\KMCWindowsClient\bin\Debug\KukaMatlabConnector.pdb
 C:\Users\Matthias.SEESLENET\Documents\GitHub\KMCWindowsClient\bin\Debug\TextLogger.pdb
 C:\Users\Matthias.SEESLENET\Documents\GitHub\KMCWindowsClient\obj\x86\Debug\ConnectorClient.KMCWindowsClient.resources
@@ -9,3 +7,6 @@ C:\Users\Matthias.SEESLENET\Documents\GitHub\KMCWindowsClient\obj\x86\Debug\KMCW
 C:\Users\Matthias.SEESLENET\Documents\GitHub\KMCWindowsClient\obj\x86\Debug\KMCWindowsClient.csproj.GenerateResource.Cache
 C:\Users\Matthias.SEESLENET\Documents\GitHub\KMCWindowsClient\obj\x86\Debug\KMCWindowsClient.exe
 C:\Users\Matthias.SEESLENET\Documents\GitHub\KMCWindowsClient\obj\x86\Debug\KMCWindowsClient.pdb
+C:\Users\Matthias.SEESLENET\Documents\GitHub\KMCWindowsClient\obj\x86\Debug\KMCWindowsClient.csprojResolveAssemblyReference.cache
+C:\Users\Matthias.SEESLENET\Documents\GitHub\KMCWindowsClient\bin\Debug\KukaMatlabConnector.dll
+C:\Users\Matthias.SEESLENET\Documents\GitHub\KMCWindowsClient\bin\Debug\TextLogger.dll
