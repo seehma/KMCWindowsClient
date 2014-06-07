@@ -79,8 +79,7 @@ namespace ConnectorClient
                     if (String.Equals(cmbProtocol.SelectedItem.ToString(),"UDP") )
                     {
                         localRobotIPAddress = System.Net.IPAddress.Parse(comboBoxRobotIPAddress.SelectedItem.ToString());
-
-                        connector_ = new KukaMatlabConnector.ConnectorObject("commanddoc.xml", localRobotIPAddress.ToString(), 6008);
+                        connector_ = new KukaMatlabConnector.ConnectorObject("commanddoc.xml", localRobotIPAddress.ToString(), Convert.ToUInt32(txtBoxPortNumber.Text));
 
                         connector_.initializeRobotListenThreadUDP();
                     }
@@ -88,7 +87,7 @@ namespace ConnectorClient
                     {
                         localRobotIPAddress = System.Net.IPAddress.Parse(comboBoxRobotIPAddress.SelectedItem.ToString());
 
-                        connector_ = new KukaMatlabConnector.ConnectorObject("commanddoc.xml", localRobotIPAddress.ToString(), 6008);
+                        connector_ = new KukaMatlabConnector.ConnectorObject("commanddoc.xml", localRobotIPAddress.ToString(), Convert.ToUInt32(txtBoxPortNumber.Text));
 
                         connector_.initializeRobotListenThreadTCP();
                     }
@@ -535,11 +534,6 @@ namespace ConnectorClient
             {
                 label_debugString.Text = Convert.ToString(debug);
             }
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

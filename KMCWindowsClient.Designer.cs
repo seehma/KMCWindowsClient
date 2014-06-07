@@ -41,6 +41,8 @@
             this.appButtonDecrementKorr5 = new System.Windows.Forms.Button();
             this.appButtonIncrementKorr5 = new System.Windows.Forms.Button();
             this.groupBoxConnectionStatus = new System.Windows.Forms.GroupBox();
+            this.txtBoxPortNumber = new System.Windows.Forms.TextBox();
+            this.cmbProtocol = new System.Windows.Forms.ComboBox();
             this.comboBoxRobotIPAddress = new System.Windows.Forms.ComboBox();
             this.appButtonStopRobotListening = new System.Windows.Forms.Button();
             this.appButtonStartRobotListening = new System.Windows.Forms.Button();
@@ -79,7 +81,6 @@
             this.label_packagesSentDescr = new System.Windows.Forms.Label();
             this.label_packagesReceived = new System.Windows.Forms.Label();
             this.label_packagesReceivedDescr = new System.Windows.Forms.Label();
-            this.cmbProtocol = new System.Windows.Forms.ComboBox();
             this.groupBoxConnectionStatus.SuspendLayout();
             this.groupBoxModifyCommandString.SuspendLayout();
             this.groupBoxOther.SuspendLayout();
@@ -204,6 +205,7 @@
             // 
             // groupBoxConnectionStatus
             // 
+            this.groupBoxConnectionStatus.Controls.Add(this.txtBoxPortNumber);
             this.groupBoxConnectionStatus.Controls.Add(this.cmbProtocol);
             this.groupBoxConnectionStatus.Controls.Add(this.comboBoxRobotIPAddress);
             this.groupBoxConnectionStatus.Controls.Add(this.appButtonStopRobotListening);
@@ -215,17 +217,36 @@
             this.groupBoxConnectionStatus.TabStop = false;
             this.groupBoxConnectionStatus.Text = "Connection Status";
             // 
+            // txtBoxPortNumber
+            // 
+            this.txtBoxPortNumber.Location = new System.Drawing.Point(216, 22);
+            this.txtBoxPortNumber.Name = "txtBoxPortNumber";
+            this.txtBoxPortNumber.Size = new System.Drawing.Size(51, 20);
+            this.txtBoxPortNumber.TabIndex = 30;
+            this.txtBoxPortNumber.Text = "6008";
+            // 
+            // cmbProtocol
+            // 
+            this.cmbProtocol.FormattingEnabled = true;
+            this.cmbProtocol.Items.AddRange(new object[] {
+            "UDP",
+            "TCP"});
+            this.cmbProtocol.Location = new System.Drawing.Point(10, 21);
+            this.cmbProtocol.Name = "cmbProtocol";
+            this.cmbProtocol.Size = new System.Drawing.Size(94, 21);
+            this.cmbProtocol.TabIndex = 29;
+            // 
             // comboBoxRobotIPAddress
             // 
             this.comboBoxRobotIPAddress.FormattingEnabled = true;
-            this.comboBoxRobotIPAddress.Location = new System.Drawing.Point(10, 22);
+            this.comboBoxRobotIPAddress.Location = new System.Drawing.Point(110, 21);
             this.comboBoxRobotIPAddress.Name = "comboBoxRobotIPAddress";
             this.comboBoxRobotIPAddress.Size = new System.Drawing.Size(94, 21);
             this.comboBoxRobotIPAddress.TabIndex = 28;
             // 
             // appButtonStopRobotListening
             // 
-            this.appButtonStopRobotListening.Location = new System.Drawing.Point(247, 51);
+            this.appButtonStopRobotListening.Location = new System.Drawing.Point(150, 51);
             this.appButtonStopRobotListening.Name = "appButtonStopRobotListening";
             this.appButtonStopRobotListening.Size = new System.Drawing.Size(134, 27);
             this.appButtonStopRobotListening.TabIndex = 25;
@@ -235,7 +256,7 @@
             // 
             // appButtonStartRobotListening
             // 
-            this.appButtonStartRobotListening.Location = new System.Drawing.Point(110, 51);
+            this.appButtonStartRobotListening.Location = new System.Drawing.Point(10, 51);
             this.appButtonStartRobotListening.Name = "appButtonStartRobotListening";
             this.appButtonStartRobotListening.Size = new System.Drawing.Size(134, 27);
             this.appButtonStartRobotListening.TabIndex = 3;
@@ -605,18 +626,6 @@
             this.label_packagesReceivedDescr.TabIndex = 38;
             this.label_packagesReceivedDescr.Text = "Packages Received";
             // 
-            // cmbProtocol
-            // 
-            this.cmbProtocol.FormattingEnabled = true;
-            this.cmbProtocol.Items.AddRange(new object[] {
-            "UDP",
-            "TCP"});
-            this.cmbProtocol.Location = new System.Drawing.Point(10, 55);
-            this.cmbProtocol.Name = "cmbProtocol";
-            this.cmbProtocol.Size = new System.Drawing.Size(94, 21);
-            this.cmbProtocol.TabIndex = 29;
-            this.cmbProtocol.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
             // KMCWindowsClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -634,6 +643,7 @@
             this.Text = "ConnectorClient";
             this.Load += new System.EventHandler(this.KukaConnectorClient_Load);
             this.groupBoxConnectionStatus.ResumeLayout(false);
+            this.groupBoxConnectionStatus.PerformLayout();
             this.groupBoxModifyCommandString.ResumeLayout(false);
             this.groupBoxModifyCommandString.PerformLayout();
             this.groupBoxOther.ResumeLayout(false);
@@ -698,6 +708,7 @@
         private System.Windows.Forms.Label label_debugStringDescr;
         private System.Windows.Forms.Button btnResetMovement;
         private System.Windows.Forms.ComboBox cmbProtocol;
+        private System.Windows.Forms.TextBox txtBoxPortNumber;
     }
 }
 
